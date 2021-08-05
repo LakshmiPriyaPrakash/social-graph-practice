@@ -68,6 +68,10 @@ class SocialNetwork {
   '5': Set { 6 },
   '6': Set {}
   }
+user 1: follows user 2
+degree 1 -> recommend the ones user 2 follows => [3]
+degree 2 -> degree 1 + recommed user 3 follows => [3, 4, 5]
+degree 3 -> degree 1 + degree 2 + degree 2 follows => [3, 4, 5, 6]
     */
 
   }
