@@ -8,8 +8,8 @@ class SocialNetwork {
   }
 
   addUser(name) {
-
     // Fill this out
+
 
   }
 
