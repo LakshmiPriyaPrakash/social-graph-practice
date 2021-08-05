@@ -68,11 +68,17 @@ class SocialNetwork {
   '5': Set { 6 },
   '6': Set {}
   }
-user 1: follows user 2
-degree 1 -> recommend the ones user 2 follows => [3]
-degree 2 -> degree 1 + recommed user 3 follows => [3, 4, 5]
-degree 3 -> degree 1 + degree 2 + degree 2 follows => [3, 4, 5, 6]
-    */
+
+  PLAN: e.g. user 1
+  1. get the set of people userID (user 1) follows => '1': Set { 2 } => 2
+  2. get the set of people 2 follows => '2': Set { 3 } => 3
+      //degree 1 o/p => [3]
+  3. get the set of people 3 follows => '3': Set { 4, 5 } => [4, 5]
+      //degree 2 o/p => [3, 4, 5]
+  4. get the set of people 4 follows => '4': Set { 1, 2 } => [1, 2] => ignored because they have already been considered
+  5. get the set of people 5 follows => '5': Set { 6 } => [6]
+      //degree 3 o/p => [3, 4, 5, 6]
+  */
 
   }
 
