@@ -79,33 +79,44 @@ class SocialNetwork {
   5. get the set of people 5 follows => '5': Set { 6 } => [6]
       //degree 3 o/p => [3, 4, 5, 6]
   */
-
+      console.log("userID: ", userID);
+      console.log("Degree: ", degrees);
       const queue = [[userID]];
-      console.log("Queue: ", queue)
+      console.log("Queue: ", queue);
       const visited = new Set();
+      console.log("Visited: ", visited);
       const recommended = [];
+      console.log("Recommended: ", recommended);
 
       while (queue.length > 0) {
         let path = queue.shift();
+        console.log("Path: ", path);
         let currentNode = path[path.length - 1];
+        console.log("CurrentNode: ", currentNode);
 
         if (!visited.has(currentNode)) {
           visited.add(currentNode);
           console.log("Visited: ", visited)
-          console.log("CurrentNode:", currentNode)
 
           if (path.length > 2 && path.length <= degrees + 2) {
             recommended.push(currentNode);
           }
-          console.log("Recommended :", recommended)
+
           let following = this.getFollows(currentNode);
           console.log("Following: ", following)
           for(let id of following) {
             let pathCopy = [...path];
+            console.log("pathCopy: ", pathCopy);
             pathCopy.push(id);
+            console.log("pathCopy + follows: ", pathCopy);
             queue.push(pathCopy);
-            console.log("Queue: ", queue)
           }
+
+          console.log("Queue: ", queue);
+          console.log("Visited: ", visited);
+          console.log("Recommended: ", recommended);
+          console.log("************************************");
+          console.log("                                    ");
 
         }
 
