@@ -31,7 +31,7 @@ class SocialNetwork {
   }
 
   follow(userID1, userID2) {
-    if(this.users[userID2] === undefined) return false
+    if(!this.users[userID1] || !this.users[userID2]) return false
 
     this.follows[userID1].add(userID2);
     return true;
@@ -59,8 +59,16 @@ class SocialNetwork {
   }
 
   getRecommendedFollows(userID, degrees) {
-
-    // Fill this out
+    /*this.follows  =>
+    {
+  '1': Set { 2 },
+  '2': Set { 3 },
+  '3': Set { 4, 5 },
+  '4': Set { 1, 2 },
+  '5': Set { 6 },
+  '6': Set {}
+  }
+    */
 
   }
 
