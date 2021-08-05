@@ -80,6 +80,38 @@ class SocialNetwork {
       //degree 3 o/p => [3, 4, 5, 6]
   */
 
+      const queue = [[userID]];
+      console.log("Queue: ", queue)
+      const visited = new Set();
+      const recommended = [];
+
+      while (queue.length > 0) {
+        let path = queue.shift();
+        let currentNode = path[path.length - 1];
+
+        if (!visited.has(currentNode)) {
+          visited.add(currentNode);
+          console.log("Visited: ", visited)
+          console.log("CurrentNode:", currentNode)
+
+          if (path.length > 2 && path.length <= degrees + 2) {
+            recommended.push(currentNode);
+          }
+          console.log("Recommended :", recommended)
+          let following = this.getFollows(currentNode);
+          console.log("Following: ", following)
+          for(let id of following) {
+            let pathCopy = [...path];
+            pathCopy.push(id);
+            queue.push(pathCopy);
+            console.log("Queue: ", queue)
+          }
+
+        }
+
+      }
+
+      return recommended;
   }
 
 }
